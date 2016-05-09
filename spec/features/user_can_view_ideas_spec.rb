@@ -11,7 +11,7 @@ RSpec.feature "User can view ideas" do
 
       [oldest_idea, newest_idea].each do |idea|
         expect(page).to have_content(idea.title)
-        expect(page).to have_content(idea.description)
+        expect(page).to have_content(idea.body)
         expect(page).to have_content(idea.quality)
       end
 
