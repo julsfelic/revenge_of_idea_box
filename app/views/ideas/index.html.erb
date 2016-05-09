@@ -1,9 +1,15 @@
 <ul class="ideas">
-  <% @ideas.each do |idea| %>
+  <% if @ideas.empty? %>
     <li>
-      <h1><%= idea.title %></h1>
-      <h2><%= idea.body %></h2>
-      <h3><%= idea.quality %></h3>
+      <h1>Add an idea!</h1>
     </li>
+  <% else %>
+    <% @ideas.each do |idea| %>
+      <li>
+        <h1><%= idea.title %></h1>
+        <h2><%= idea.body %></h2>
+        <h3><%= idea.quality %></h3>
+      </li>
+    <% end %>
   <% end %>
 </ul>

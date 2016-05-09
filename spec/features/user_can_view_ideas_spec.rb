@@ -21,6 +21,11 @@ RSpec.feature "User can view ideas" do
   end
 
   context "with no ideas" do
+    scenario "they see a message to add an idea" do
+      visit root_path
+
+      expect(page).to have_content("Add an idea!")
+    end
   end
 
   context "with an idea that has more than 100 characters" do
