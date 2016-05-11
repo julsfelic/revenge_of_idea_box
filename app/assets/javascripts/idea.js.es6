@@ -1,6 +1,11 @@
 class Idea {
   newIdea(data) {
-    return $('<li><h1>' + data.title + '</h1><h2>' + data.body + '</h2><h3>' + data.quality + '</h3></li>');
+    return $(`<li data-id="${data.id}">
+        <h1>${data.title}</h1>
+        <h2>${data.body}</h2>
+        <h3>${data.quality}</h3>
+        <a href="#" class="delete-idea">Delete</a>
+      </li>`);
   }
 
   postData(form) {
@@ -8,6 +13,17 @@ class Idea {
       let idea = this.newIdea(data);
       $('.ideas').prepend(idea);
       form.clearFields();
+    });
+  }
+
+  deleteData($idea) {
+    $.ajax({
+      dataType: 'json',
+      method: 'DELETE',
+      url: `/api/v1/ideas/${$idea.data('id')}`,
+      success: (data) => {
+        $idea.hide();
+      }
     });
   }
 }

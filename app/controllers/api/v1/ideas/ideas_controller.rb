@@ -7,6 +7,10 @@ module Api
           respond_with :api, :v1, idea
         end
 
+        def destroy
+          respond_with Idea.find(params[:id]).destroy
+        end
+
         private
 
         def idea_params

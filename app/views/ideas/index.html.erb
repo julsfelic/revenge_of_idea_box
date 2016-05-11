@@ -5,10 +5,11 @@
     </li>
   <% else %>
     <% @ideas.each do |idea| %>
-      <li>
+      <li data-id=<%= idea.id %>>
         <h1><%= idea.title %></h1>
         <h2><%= idea.body %></h2>
         <h3><%= idea.quality %></h3>
+        <%= link_to 'Delete', '#', class: 'delete-idea' %>
       </li>
     <% end %>
   <% end %>
