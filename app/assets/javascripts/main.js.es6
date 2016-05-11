@@ -10,3 +10,9 @@ $formEl.on('submit', (e) => {
   e.preventDefault();
   idea.postData(form);
 });
+
+$(document).on('click', '.delete-idea', (e) => {
+  e.preventDefault();
+  let $idea = $(e.target).parent();
+  idea.deleteData($idea);
+});
