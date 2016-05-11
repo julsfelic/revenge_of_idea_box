@@ -9,6 +9,9 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'responders', '~> 2.0'
+gem 'sprockets'
+gem 'sprockets-es6'
+gem 'browserify-rails'
 
 group :development, :test do
   gem 'byebug'
@@ -17,6 +20,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'selenium-webdriver'
+  gem 'teaspoon'
+  gem 'teaspoon-mocha'
 end
 
 group :test do
