@@ -8,17 +8,22 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'responders', '~> 2.0'
 
 group :development, :test do
   gem 'byebug'
-  gem "rspec-rails", "~> 3.0"
-  gem "factory_girl_rails"
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
+  gem 'pry-rails'
+  gem 'pry-nav'
+  gem 'selenium-webdriver'
 end
 
 group :test do
-  gem "shoulda-matchers", "~> 3.1"
-  gem "database_cleaner"
-  gem "capybara"
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
