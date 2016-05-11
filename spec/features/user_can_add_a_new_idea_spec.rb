@@ -1,30 +1,32 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.feature "User can add a new idea" do
-  scenario "they see the newely created idea" do
+RSpec.feature 'User can add a new idea' do
+  scenario 'they see the newely created idea', js: true do
     create(:idea)
-    title = "Sample Title"
-    body = "Sample Body"
+    title = 'Sample Title'
+    body = 'Sample Body'
 
     visit root_path
-    fill_in "title", with: title
-    fill_in "body",  with: body
-    click_on "Save"
-    saved_idea = find(".ideas").all("li").first
+    fill_in 'idea_title', with: title
+    fill_in 'idea_body',  with: body
+    click_button('Save')
 
-    expect(saved_idea).to have_content(title)
-    expect(saved_idea).to have_content(body)
+    within('.ideas li:first-of-type') do
+      expect(page).to have_content(title)
+      expect(page).to have_content(body)
+    end
 
-    savedDatabaseIdea = Idea.last
+    saved_database_idea = Idea.first
 
-    expect(savedDatabaseIdea.title).to eq(title)
-    expect(savedDatabaseIdea.body).to eq(body)
+    expect(saved_database_idea.title).to eq(title)
+    expect(saved_database_idea.body).to eq(body)
 
     # Idea is still present on reload
     visit root_path
-    saved_idea = find(".ideas").all("li").first
 
-    expect(saved_idea).to have_content(title)
-    expect(saved_idea).to have_content(body)
+    within('.ideas li:first-of-type') do
+      expect(page).to have_content(title)
+      expect(page).to have_content(body)
+    end
   end
 end
