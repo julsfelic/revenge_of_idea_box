@@ -22,6 +22,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'teaspoon'
   gem 'teaspoon-mocha'
+  gem 'chromedriver-helper'
 end
 
 group :test do
