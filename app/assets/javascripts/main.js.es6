@@ -32,3 +32,17 @@ $(document).on('click', '.thumbs_down', function(e) {
   Quality.decrement($quality);
   idea.updateData($quality);
 });
+
+$(document).on('keydown', '.idea-title', function(e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    idea.updateTitle($(this));
+  }
+});
+
+$(document).on('keydown', '.idea-body', function(e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    idea.updateBody($(this));
+  }
+});

@@ -6,8 +6,8 @@
   <% else %>
     <% @ideas.each do |idea| %>
       <li data-id=<%= idea.id %>>
-        <h1><%= idea.title %></h1>
-        <h2><%= idea.body %></h2>
+        <h1 class='idea-title' contenteditable='true'><%= idea.title %></h1>
+        <h2 class='idea-body' contenteditable='true'><%= idea.body %></h2>
         <h3><%= idea.quality %></h3>
         <%= link_to 'Delete', '#', class: 'delete-idea' %>
         <%= link_to image_tag('thumbs_up', alt: 'thumbs up'), '#', class: 'thumbs_up' %>
