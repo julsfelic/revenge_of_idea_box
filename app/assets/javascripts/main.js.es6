@@ -50,7 +50,7 @@ $(document).on('keydown', '.idea-body', function(e) {
 
 function fuzzyMatch(str, pattern) {
   pattern = pattern.split('').reduce((a, b) => `${a}.*${b}`);
-  return (new RegExp(pattern)).test(str.toLowerCase());
+  return (new RegExp(pattern.toLowerCase())).test(str.toLowerCase());
 }
 
 function filterIdeas($ideas, term) {
