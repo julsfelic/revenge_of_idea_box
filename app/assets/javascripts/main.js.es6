@@ -7,6 +7,7 @@ const idea = new Idea;
 const Quality = require('./quality.js.es6');
 
 const $formEl = $('form');
+const $searchBar = $('.search-form');
 
 $formEl.on('submit', (e) => {
   e.preventDefault();
@@ -45,4 +46,30 @@ $(document).on('keydown', '.idea-body', function(e) {
     e.preventDefault();
     idea.updateBody($(this));
   }
+});
+
+function fuzzyMatch(str, pattern) {
+  pattern = pattern.split('').reduce((a, b) => `${a}.*${b}`);
+  return (new RegExp(pattern)).test(str.toLowerCase());
+}
+
+function filterIdeas($ideas, term) {
+  $ideas.each(function(index, idea) {
+    let ideaText = $(idea).children('.idea-title, .idea-body');
+    let ideaTitle = ideaText[0].innerText;
+    let ideaBody = ideaText[1].innerText;
+
+    if (term === '' || fuzzyMatch(ideaTitle, term) || fuzzyMatch(ideaBody, term) ) {
+      $(idea).removeClass('hide');
+    } else {
+      $(idea).addClass('hide');
+    }
+  });
+}
+
+$searchBar.on('keyup', function(e) {
+  let $ideas = $('.ideas li');
+  let searchTerm = e.target.value;
+
+  filterIdeas($ideas, searchTerm);
 });
