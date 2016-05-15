@@ -1,12 +1,17 @@
 class Idea {
+  constructor(thumbsUpPath, thumbsDownPath) {
+    this.thumbsUpPath = thumbsUpPath;
+    this.thumbsDownPath = thumbsDownPath;
+  }
+
   newIdea(data) {
     return $(`<li data-id="${data.id}">
         <h1 class="idea-title" contenteditable="true">${data.title}</h1>
         <h2 class="idea-body" contenteditable="true">${data.body}</h2>
         <h3>${data.quality}</h3>
         <a href="#" class="delete-idea">Delete</a>
-        <a href="#" class="thumbs_up"><img src="/assets/thumbs_up.png"></a>
-        <a href="#" class="thumbs_down"><img src="/assets/thumbs_down.png"></a>
+        <a href="#" class="thumbs_up"><img src="${this.thumbsUpPath}" alt="thumbs up"></a>
+        <a href="#" class="thumbs_down"><img src="${this.thumbsDownPath}" alt="thumbs down"></a>
       </li>`);
   }
 

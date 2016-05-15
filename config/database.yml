@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: revenge_of_idea_box_production
-  username: revenge_of_idea_box
-  password: <%= ENV['REVENGE_OF_IDEA_BOX_DATABASE_PASSWORD'] %>

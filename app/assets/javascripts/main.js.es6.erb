@@ -1,8 +1,11 @@
 const Form = require('./form.js.es6');
 const form = new Form;
 
+var thumbsUpPath = "<%= asset_path('thumbs_up.png') %>";
+var thumbsDownPath = "<%= asset_path('thumbs_down.png') %>";
+
 const Idea = require('./idea.js.es6');
-const idea = new Idea;
+const idea = new Idea(thumbsUpPath, thumbsDownPath);
 
 const Quality = require('./quality.js.es6');
 
