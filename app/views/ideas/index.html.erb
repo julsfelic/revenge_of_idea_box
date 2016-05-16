@@ -1,4 +1,5 @@
 <%= render partial: 'partials/search_form' %>
+<%= render partial: "partials/form" %>
 
 <ul class="ideas">
   <% if @ideas.empty? %>
@@ -18,5 +19,3 @@
     <% end %>
   <% end %>
 </ul>
-
-<%= render partial: "partials/form" %>

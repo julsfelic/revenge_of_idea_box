@@ -1,3 +1,22 @@
+.container {
+  margin: 0 auto;
+  width: 60%;
+}
+
 .hide {
   display: none;
+}
+
+.ideas {
+  list-style: none;
+  padding: 0;
+}
+
+#idea_title,
+#idea_body,
+#save-idea,
+#search_form_search {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
 }
