@@ -1,9 +1,7 @@
 <%= form_for(:idea, url: api_v1_ideas_path) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, placeholder: 'Title' %>
 
-  <%= f.label :body %>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, placeholder: 'Description' %>
 
   <%= f.submit "Save", id: 'save-idea' %>
 <% end %>

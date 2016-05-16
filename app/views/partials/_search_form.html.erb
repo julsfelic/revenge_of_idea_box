@@ -1,4 +1,3 @@
 <%= form_for(:search_form, url: '#', html: { class: 'search-form'} ) do |f| %>
-  <%= f.label :search %>
-  <%= f.text_field :search %>
+  <%= f.text_field :search, placeholder: 'Search' %>
 <% end %>
